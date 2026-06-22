@@ -1,0 +1,76 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background: #e0e0d8; font-family: Arial, sans-serif; min-height: 100vh; }
+body:has(a.voltar) { border-left: 2px solid #1e6b40; border-top: 2px solid #1e6b40; }
+
+a.voltar {
+    display: block; background: #c8c8c0; padding: 7px 20px;
+    font: 700 italic 13px Arial; color: #1e6b40; text-decoration: none;
+}
+
+.pagina-titulo { padding: 18px 30px 10px; }
+.pagina-titulo h2 { display: inline; font-size: 2rem; font-weight: 900; color: #1e6b40; }
+.pagina-titulo span { font-size: 1.3rem; color: #666; margin-left: 10px; }
+
+.conteudo { padding: 0 30px 120px; }
+
+.card { padding: 24px 0 0; }
+.card p { font-size: 1.15rem; color: #111; margin-bottom: 10px; }
+
+.valor {
+    display: block; background: #000; color: #e82020;
+    font: 700 2.8rem Arial; padding: 18px 24px;
+    width: 250px; text-align: center; border-radius: 4px;
+}
+
+.botao {
+    display: inline-block; background: #1e6b40; color: #fff;
+    font: 700 italic 1.2rem Arial; border: none;
+    border-radius: 10px; padding: 14px 36px; cursor: pointer;
+}
+.botao:hover:not(:disabled) { background: #165532; }
+.botao:disabled { background: #7ab890; cursor: not-allowed; }
+
+.rodape {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #c8c8c0; border-top: 2px solid #1e6b40;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 24px; z-index: 100;
+}
+.rodape-logo { height: 40px; width: auto; object-fit: contain; }
+.rodape-voltar { font: 700 italic 14px Arial; color: #1e6b40; text-decoration: none; }
+.rodape-voltar:hover { text-decoration: underline; }
+
+.irrig-layout { display: flex; align-items: flex-start; padding: 0 30px 120px; gap: 40px; }
+.irrig-esq { flex: 1; }
+.irrig-secao { font-size: 1.8rem; font-weight: 900; color: #1a1a1a; margin: 8px 0 8px 30px; }
+.irrig-status { display: flex; align-items: center; gap: 14px; margin-left: 30px; }
+
+.irrig-label { font-size: 1.3rem; font-style: italic; color: #111; }
+.irrig-dir { display: flex; align-items: center; padding-top: 60px; }
+
+.reservatorio {
+    width: 24px; height: 240px; border: 2px solid #333;
+    border-radius: 2px; position: relative; overflow: hidden;
+}
+.reservatorio-agua {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: #3a7fcc; height: 60%; transition: height 0.4s;
+}
+.tambor-img { height: 240px; width: auto; object-fit: contain; }
+
+.index-header { text-align: center; padding: 48px 20px 20px; }
+.index-logo { width: 420px; max-width: 90vw; height: auto; display: block; margin: 0 auto 20px; }
+.index-sub { font-size: 1.2rem; font-weight: 700; color: #6b6b2a; margin-bottom: 16px; }
+.index-main { display: flex; justify-content: center; gap: 40px; padding: 10px 40px 60px; flex-wrap: wrap; }
+
+.menu-card { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; width: 200px; }
+.menu-card-nome { font-size: 1.5rem; font-weight: 700; color: #1e6b40; margin-bottom: 10px; display: block; }
+.menu-card-img {
+    width: 200px; height: 170px; object-fit: cover; object-position: center;
+    border-radius: 4px; border: 5px solid #fff;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.2); display: block; transition: transform 0.15s;
+}
+.menu-card:hover .menu-card-img { transform: translateY(-3px); }
+
+img { max-width: 100%; height: auto; }

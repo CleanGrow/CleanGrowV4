@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irrigação</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="cleangrow.png">
+</head>
+<body>
+
+<a href="index.html" class="voltar">Início</a>
+
+<div class="irrig-layout">
+
+    <div class="irrig-esq">
+
+        <div class="pagina-titulo">
+            <h2>Irrigação</h2><span>– Dados em tempo real</span>
+        </div>
+
+        <p class="irrig-secao">Status</p>
+        <div class="irrig-status">
+            <span class="circulo vermelho" id="circulo_irrig"></span>
+            <span class="irrig-label" id="stat_irrig">--</span>
+        </div>
+
+        <div class="pagina-titulo" style="margin-top:24px">
+            <h2>Válvula</h2><span>– Dados em tempo real</span>
+        </div>
+
+        <p class="irrig-secao">Status</p>
+        <div class="irrig-status">
+            <span class="circulo verde" id="circulo_valv"></span>
+            <span class="irrig-label" id="stat_valv">--</span>
+        </div>
+
+        <button class="botao" id="btnIrrigar" style="margin-top:32px">Irrigar Agora</button>
+
+    </div>
+
+    <div class="irrig-dir">
+        <div class="reservatorio">
+            <div class="reservatorio-agua" id="nivelBar"></div>
+        </div>
+        <img src="tambor.png" alt="Reservatório" class="tambor-img">
+    </div>
+
+</div>
+
+<footer class="rodape">
+    <img src="cleangrow.png" alt="CleanGrow" class="rodape-logo">
+    <a href="index.html" class="rodape-voltar">← Voltar</a>
+</footer>
+
+<script src="script.js" type="module"></script>
+</body>
+</html>

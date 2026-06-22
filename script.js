@@ -93,13 +93,12 @@ onValue(ref(db, "sis_emergencia"), (snapshot) => {
         popup.innerHTML = `
             <div style="position:fixed;top:0;left:0;width:100%;height:100%;
                         background:rgba(0,0,0,0.65);display:flex;
-                        justify-content:center;align-items:center;
+                        justify-content:flex-end;align-items:flex-start;padding:20px;
                         z-index:99999;">
-                <div style="background:#fff;padding:25px;border-radius:12px;
+                <div style="background:#c62828;padding:18px;border-radius:10px;
                             max-width:420px;text-align:center;
                             box-shadow:0 0 20px rgba(0,0,0,0.3);">
-                    <h2 style="color:#d32f2f;margin-top:0;">⚠️ Sistema em Emergência</h2>
-                    <p>Foi detectada uma condição crítica no sistema. Verifique imediatamente os sensores e equipamentos.</p>
+                    <h2 style="color:#fff;margin:0;">Situação Crítica</h2>
                     <button id="fecharEmergencia"
                             style="padding:10px 20px;border:none;border-radius:8px;
                                    cursor:pointer;">

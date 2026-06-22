@@ -78,46 +78,26 @@ if (btn) {
     });
 }
 
+(function criarNotificacaoEmergencia() {
+    const notif = document.createElement("div");
+    notif.id = "emergencia-notif";
+    notif.style.cssText = `
+        display: none;
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        z-index: 9999;
+        background: #e82020;
+        color: #fff;
+        font: 700 0.9rem Arial;
+        padding: 10px 16px;
+        border-radius: 4px;
+    `;
+    notif.textContent = "EMERGENCIA - Verifique o sistema";
 
-// Monitoramento de emergência
-let alertaEmergenciaAtivo = false;
+    document.body.appendChild(notif);
 
-onValue(ref(db, "sis_emergencia"), (snapshot) => {
-    const valor = Number(snapshot.val());
-
-    if (valor === 1 && !alertaEmergenciaAtivo) {
-        alertaEmergenciaAtivo = true;
-
-        const popup = document.createElement("div");
-        popup.id = "popupEmergencia";
-        popup.innerHTML = `
-            <div style="position:fixed;top:0;left:0;width:100%;height:100%;
-                        background:rgba(0,0,0,0.65);display:flex;
-                        justify-content:flex-end;align-items:flex-start;padding:20px;
-                        z-index:99999;">
-                <div style="background:#c62828;padding:18px;border-radius:10px;
-                            max-width:420px;text-align:center;
-                            box-shadow:0 0 20px rgba(0,0,0,0.3);">
-                    <h2 style="color:#fff;margin:0;">Situação Crítica</h2>
-                    <button id="fecharEmergencia"
-                            style="padding:10px 20px;border:none;border-radius:8px;
-                                   cursor:pointer;">
-                        Entendi
-                    </button>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(popup);
-
-        document.getElementById("fecharEmergencia").onclick = () => {
-            popup.remove();
-        };
-    }
-
-    if (valor === 0) {
-        alertaEmergenciaAtivo = false;
-        const popup = document.getElementById("popupEmergencia");
-        if (popup) popup.remove();
-    }
-});
+    onValue(ref(db, "sis_emergencia"), (snapshot) => {
+        notif.style.display = snapshot.val() == 1 ? "block" : "none";
+    });
+}());

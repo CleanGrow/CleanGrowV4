@@ -57,6 +57,10 @@ a.voltar {
     position: absolute; bottom: 0; left: 0; right: 0;
     background: #3a7fcc; height: 60%; transition: height 0.4s;
 }
+.reservatorio-pct {
+    font-size: 1rem; font-weight: 700; color: #1e6b40;
+    align-self: center; margin: 0 8px;
+}
 .tambor-img { height: 240px; width: auto; object-fit: contain; }
 
 .index-header { text-align: center; padding: 48px 20px 20px; }

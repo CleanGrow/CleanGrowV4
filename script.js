@@ -41,11 +41,11 @@ monitorar("minh_umid", "minh_umid", "%");
 monitorar("minh_gas", "minh_gas");
 
 onValue(ref(db, "res_nivel"), (snapshot) => {
-    const nivel = snapshot.val() || 0;
+    const cheio = Number(snapshot.val()) === 1;
     const texto = document.getElementById("res_nivel");
     const barra = document.getElementById("nivelBar");
-    if (texto) texto.textContent = nivel + "%";
-    if (barra) barra.style.height = nivel + "%";
+    if (texto) texto.textContent = cheio ? "Cheio" : "Vazio";
+    if (barra) barra.style.height = cheio ? "100%" : "0%";
 });
 
 onValue(ref(db, "stat_irrig"), (snapshot) => {

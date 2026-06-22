@@ -29,7 +29,7 @@ monitorar("amb_umid", "amb_umid", "%");
 onValue(ref(db, "amb_chuva"), (snapshot) => {
     const el = document.getElementById("amb_chuva");
     if (!el) return;
-    el.textContent = snapshot.val() == 1 ? "🌧 Chovendo" : "☀ Sem chuva";
+    el.textContent = snapshot.val() == 1 ? "Chovendo" : "Sem chuva";
 });
 
 monitorar("comp_temp", "comp_temp", "°C");
@@ -51,13 +51,13 @@ onValue(ref(db, "res_nivel"), (snapshot) => {
 onValue(ref(db, "stat_irrig"), (snapshot) => {
     const el = document.getElementById("stat_irrig");
     if (!el) return;
-    el.textContent = snapshot.val() == 1 ? "🟢 Ligada" : "🔴 Desligada";
+    el.textContent = snapshot.val() == 1 ? "Ligada" : "Desligada";
 });
 
 onValue(ref(db, "stat_valv"), (snapshot) => {
     const el = document.getElementById("stat_valv");
     if (!el) return;
-    el.textContent = snapshot.val() == 1 ? "🟢 Aberta" : "🔴 Fechada";
+    el.textContent = snapshot.val() == 1 ? "Aberta" : "Fechada";
 });
 
 const btn = document.getElementById("btnIrrigar");
@@ -66,7 +66,7 @@ if (btn) {
     onValue(ref(db, "stat_irrig"), (snapshot) => {
         const irrigando = Number(snapshot.val()) === 1;
         btn.disabled = irrigando;
-        btn.textContent = irrigando ? "💧 Irrigando..." : "💧 Irrigar Agora";
+        btn.textContent = irrigando ? "Irrigando..." : "Irrigar Agora";
     });
 
     btn.addEventListener("click", async () => {

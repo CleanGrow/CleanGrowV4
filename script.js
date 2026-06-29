@@ -23,8 +23,23 @@ function monitorar(caminho, elementoId, sufixo = "") {
     });
 }
 
-monitorar("amb_temp", "amb_temp", "°C");
-monitorar("amb_umid", "amb_umid", "%");
+function monitorarLimitado(caminho, elementoId, sufixo = "") {
+    const elemento = document.getElementById(elementoId);
+    if (!elemento) return;
+    onValue(ref(db, caminho), (snapshot) => {
+        const valor = snapshot.val();
+        if (valor === null) {
+            elemento.textContent = "--";
+            return;
+        }
+        const digitos = String(Math.abs(Math.trunc(Number(valor)))).length;
+        if (digitos > 2) return;
+        elemento.textContent = valor + sufixo;
+    });
+}
+
+monitorarLimitado("amb_temp", "amb_temp", "°C");
+monitorarLimitado("amb_umid", "amb_umid", "%");
 
 onValue(ref(db, "amb_chuva"), (snapshot) => {
     const el = document.getElementById("amb_chuva");
@@ -32,12 +47,12 @@ onValue(ref(db, "amb_chuva"), (snapshot) => {
     el.textContent = snapshot.val() == 1 ? "Chovendo" : "Sem chuva";
 });
 
-monitorar("comp_temp", "comp_temp", "°C");
-monitorar("comp_umid", "comp_umid", "%");
+monitorarLimitado("comp_temp", "comp_temp", "°C");
+monitorarLimitado("comp_umid", "comp_umid", "%");
 monitorar("comp_gas", "comp_gas");
 
-monitorar("minh_temp", "minh_temp", "°C");
-monitorar("minh_umid", "minh_umid", "%");
+monitorarLimitado("minh_temp", "minh_temp", "°C");
+monitorarLimitado("minh_umid", "minh_umid", "%");
 monitorar("minh_gas", "minh_gas");
 
 onValue(ref(db, "res_nivel"), (snapshot) => {
